@@ -1,0 +1,28 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: CompositeResourceDefinition
+metadata:
+  name: apps.acme.com
+spec:
+  group: acme.com
+  names:
+    kind: AcmeApp
+    plural: acmeapps
+  versions:
+    - name: v1alpha1
+      served: true
+      referenceable: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                namespace:
+                  type: string
+                appName:
+                  type: string
+                replicas:
+                  type: integer
+      defaultCompositionRef:
+        name: acme-app-composition

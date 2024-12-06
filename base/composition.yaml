@@ -1,0 +1,27 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: acme-app-composition
+spec:
+  compositeTypeRef:
+    apiVersion: acme.com/v1alpha1
+    kind: AcmeApp
+  resources:
+    - name: helm-release
+      base:
+        apiVersion: helm.crossplane.io/v1beta1
+        kind: Release
+        metadata:
+          name: "{{ .spec.appName }}-chart"
+          namespace: "{{ .spec.namespace }}"
+        spec:
+          forProvider:
+            chart:
+              name: acme-app
+              repository: https://gitops-ci-cd.github.io/helm-charts/
+              version: "0.1.0"
+            namespace: "{{ .spec.namespace }}"
+            values:
+              replicaCount: "{{ .spec.replicas }}"
+          providerConfigRef:
+            name: helm-provider
