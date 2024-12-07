@@ -32,4 +32,4 @@ spec:
         - fromFieldPath: spec.replicas
           toFieldPath: spec.forProvider.values.replicaCount
         - fromFieldPath: metadata.uid
-          toFieldPath: spec.forProvider.values.annotations.argocd.argoproj.io/tracking-id
+          toFieldPath: spec.forProvider.values.annotations[\"argocd.argoproj.io/tracking-id\"]"
