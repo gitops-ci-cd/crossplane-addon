@@ -1,3 +1,4 @@
+---
 apiVersion: apiextensions.crossplane.io/v1
 kind: CompositeResourceDefinition
 metadata:
@@ -20,9 +21,15 @@ spec:
               properties:
                 namespace:
                   type: string
+                  description: Namespace to deploy the application
                 appName:
                   type: string
+                  description: Name of the application
                 replicas:
                   type: integer
+                  description: Number of replicas
+              required:
+                - namespace
+                - appName
       defaultCompositionRef:
         name: acme-app-composition

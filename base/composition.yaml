@@ -1,3 +1,4 @@
+---
 apiVersion: apiextensions.crossplane.io/v1
 kind: Composition
 metadata:
@@ -12,14 +13,13 @@ spec:
         apiVersion: helm.crossplane.io/v1beta1
         kind: Release
         metadata:
-          name: "{{ .spec.appName }}-chart"
-          namespace: "{{ .spec.namespace }}"
+          name: "{{ .spec.appName }}"
         spec:
           forProvider:
             chart:
               name: acme-app
               repository: https://gitops-ci-cd.github.io/helm-charts/
-              version: "0.1.0"
+              version: "0.2.0"
             namespace: "{{ .spec.namespace }}"
             values:
               replicaCount: "{{ .spec.replicas }}"
