@@ -19,7 +19,7 @@ spec:
             chart:
               name: acme-app
               repository: https://gitops-ci-cd.github.io/helm-charts/
-              version: "0.2.1"
+              version: "0.2.2"
             values:
               replicaCount: "{{ .spec.replicas }}"
             namespace: ""
