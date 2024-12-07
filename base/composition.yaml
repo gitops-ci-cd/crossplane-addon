@@ -14,11 +14,6 @@ spec:
         kind: Release
         metadata:
           name: "{{ .spec.appName }}"
-          ownerReferences:
-            - apiVersion: "{{ .apiVersion }}"
-              kind: AcmeAppClaim
-              name: "{{ .metadata.name }}"
-              uid: "{{ .metadata.uid }}"
         spec:
           forProvider:
             chart:
@@ -30,7 +25,7 @@ spec:
           providerConfigRef:
             name: helm-provider
       patches:
-        - fromFieldPath: "metadata.namespace"
-          toFieldPath: "metadata.namespace"
+        - fromFieldPath: metadata.namespace
+          toFieldPath: metadata.namespace
         - fromFieldPath: metadata.namespace
           toFieldPath: spec.forProvider.namespace
