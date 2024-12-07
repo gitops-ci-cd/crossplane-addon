@@ -8,6 +8,9 @@ spec:
   names:
     kind: AcmeApp
     plural: acmeapps
+  claimNames:
+    kind: AcmeAppClaim
+    plural: acmeappclaims
   versions:
     - name: v1alpha1
       served: true
@@ -16,12 +19,6 @@ spec:
         openAPIV3Schema:
           type: object
           properties:
-            metadata:
-              type: object
-              properties:
-                namespace:
-                  type: string
-                  description: The namespace in which resources will be created.
             spec:
               type: object
               properties:
