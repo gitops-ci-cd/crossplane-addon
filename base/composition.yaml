@@ -22,10 +22,11 @@ spec:
               version: "0.2.1"
             values:
               replicaCount: "{{ .spec.replicas }}"
+            namespace: ""
           providerConfigRef:
             name: helm-provider
       patches:
-        - fromFieldPath: metadata.namespace
+        - fromFieldPath: spec.namespace
           toFieldPath: metadata.namespace
-        - fromFieldPath: metadata.namespace
+        - fromFieldPath: spec.namespace
           toFieldPath: spec.forProvider.namespace
