@@ -19,9 +19,6 @@ spec:
             spec:
               type: object
               properties:
-                namespace:
-                  type: string
-                  description: Namespace to deploy the application
                 appName:
                   type: string
                   description: Name of the application
@@ -29,7 +26,6 @@ spec:
                   type: integer
                   description: Number of replicas
               required:
-                - namespace
                 - appName
       defaultCompositionRef:
         name: acme-app-composition
