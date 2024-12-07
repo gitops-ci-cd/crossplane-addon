@@ -14,7 +14,7 @@ spec:
         kind: Release
         metadata:
           name: "{{ .spec.appName }}"
-          namespace: "{{ .metadata.namespace }}"
+          namespace: "" # Will be patched dynamically
           ownerReferences:
             - apiVersion: "{{ .apiVersion }}"
               kind: AcmeAppClaim
@@ -32,5 +32,7 @@ spec:
           providerConfigRef:
             name: helm-provider
       patches:
+        - fromFieldPath: "metadata.namespace"
+          toFieldPath: "metadata.namespace"
         - fromFieldPath: metadata.namespace
           toFieldPath: spec.forProvider.namespace
