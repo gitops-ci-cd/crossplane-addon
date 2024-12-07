@@ -37,3 +37,6 @@ spec:
                 - appName
       defaultCompositionRef:
         name: acme-app-composition
+      patches:
+        - fromFieldPath: metadata.namespace
+          toFieldPath: spec.namespace

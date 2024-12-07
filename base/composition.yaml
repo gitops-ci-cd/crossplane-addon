@@ -19,7 +19,7 @@ spec:
             chart:
               name: acme-app
               repository: https://gitops-ci-cd.github.io/helm-charts/
-              version: "0.2.2"
+              version: "0.3.0"
             values: {}
             namespace: ""
           providerConfigRef:
@@ -31,3 +31,5 @@ spec:
           toFieldPath: spec.forProvider.values.appName
         - fromFieldPath: spec.replicas
           toFieldPath: spec.forProvider.values.replicaCount
+        - fromFieldPath: metadata.uid
+          toFieldPath: spec.forProvider.values.annotations.argocd.argoproj.io/tracking-id
