@@ -16,15 +16,21 @@ spec:
         openAPIV3Schema:
           type: object
           properties:
+            metadata:
+              type: object
+              properties:
+                namespace:
+                  type: string
+                  description: The namespace in which resources will be created.
             spec:
               type: object
               properties:
                 appName:
                   type: string
-                  description: Name of the application
+                  description: Name of the application.
                 replicas:
                   type: integer
-                  description: Number of replicas
+                  description: Number of replicas.
               required:
                 - appName
       defaultCompositionRef:
