@@ -7,3 +7,4 @@ resources:
   - https://raw.githubusercontent.com/crossplane-contrib/provider-helm/main/examples/provider-config/provider-config-incluster.yaml
   - composition.yaml
   - xrd.yaml
+  - rbac.yaml
