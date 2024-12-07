@@ -36,4 +36,4 @@ spec:
           transforms:
             - type: map
               map:
-                argocd.argoproj.io/tracking-id: "{{ . }}"
+                "argocd.argoproj.io/tracking-id": "{{ . }}"
