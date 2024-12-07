@@ -20,8 +20,11 @@ spec:
               name: acme-app
               repository: https://gitops-ci-cd.github.io/helm-charts/
               version: "0.2.1"
-            namespace: "{{ .metadata.namespace }}"
+            namespace: "" # Will be patched dynamically
             values:
               replicaCount: "{{ .spec.replicas }}"
           providerConfigRef:
             name: helm-provider
+      patches:
+        - fromFieldPath: metadata.namespace
+          toFieldPath: spec.forProvider.namespace
