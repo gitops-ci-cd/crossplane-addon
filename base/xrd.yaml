@@ -22,10 +22,6 @@ spec:
             spec:
               type: object
               properties:
-                namespace:
-                  type: string
-                  description: Namespace where resources will be created.
-                  default: default
                 appName:
                   type: string
                   description: Name of the application.
@@ -37,6 +33,3 @@ spec:
                 - appName
       defaultCompositionRef:
         name: acme-app-composition
-      patches:
-        - fromFieldPath: metadata.namespace
-          toFieldPath: spec.namespace
