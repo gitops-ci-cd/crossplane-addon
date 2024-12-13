@@ -3,7 +3,9 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - https://raw.githubusercontent.com/crossplane-contrib/provider-helm/main/examples/provider-config/provider-incluster.yaml
-  - https://raw.githubusercontent.com/crossplane-contrib/provider-helm/main/examples/provider-config/provider-config-incluster.yaml
+  - provider.yaml
+  - deployment-runtime-config.yaml
+  - crb.yaml
+  - provider-config.yaml
   - composition.yaml
   - xrd.yaml
