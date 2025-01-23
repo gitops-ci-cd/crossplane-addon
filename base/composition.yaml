@@ -27,9 +27,18 @@ spec:
       patches:
         - fromFieldPath: metadata.labels["crossplane.io/claim-namespace"]
           toFieldPath: spec.forProvider.namespace
+          type: FromCompositeFieldPath
         - fromFieldPath: spec.appName
           toFieldPath: spec.forProvider.values.appName
+          type: FromCompositeFieldPath
         - fromFieldPath: spec.replicas
           toFieldPath: spec.forProvider.values.replicaCount
+          type: FromCompositeFieldPath
         - fromFieldPath: metadata.annotations["argocd.argoproj.io/tracking-id"]
           toFieldPath: spec.forProvider.values.annotations["argocd.argoproj.io/tracking-id"]
+          type: FromCompositeFieldPath
+      readinessChecks:
+        - matchCondition:
+            status: 'True'
+            type: Ready
+          type: MatchCondition
